@@ -1,3 +1,6 @@
+import math
+
+
 def calculate_simple_interest_payment(fv, years, rate, payments_per_year):
     total_payments_num = years * payments_per_year
     rate_divided = rate / payments_per_year
@@ -14,7 +17,7 @@ def calculate_simple_interest_payment(fv, years, rate, payments_per_year):
     # a = fv / (total_payments_num + (1 + 2 + 3 + ... + total_payments_num) * rate_divided)
 
     a = fv / (total_payments_num + n_sum * rate_divided)
-    return a
+    return math.ceil(a * 100) / 100
 
 
 def calculate_compound_interest_payment_loop(fv, years, rate, payments_per_year):
@@ -39,7 +42,7 @@ def calculate_compound_interest_payment_loop(fv, years, rate, payments_per_year)
     # a = fv / (( ...(((multiplier + 1) * multiplier + 1) * multiplier + 1) ... ) * multiplier)
 
     a = fv / denominator
-    return a
+    return math.ceil(a * 100) / 100
 
 
 future_value = 10000
